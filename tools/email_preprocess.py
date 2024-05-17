@@ -1,27 +1,21 @@
+import sys
 import joblib
 import numpy
-
+import pickle
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.feature_selection import SelectPercentile, f_classif
 
+# sys.path.append(".")
+# def wdpkl(x):
+#     with open(x,'rb') as f:
+#         return f
 
-def preprocess(words_file = "../tools/word_data.pkl", authors_file="../tools/email_authors.pkl"):
-    """ 
-        this function takes a pre-made list of email texts (by default word_data.pkl)
-        and the corresponding authors (by default email_authors.pkl) and performs
-        a number of preprocessing steps:
-            -- splits into training/testing sets (10% testing)
-            -- vectorizes into tfidf matrix
-            -- selects/keeps most helpful features
+# def eapkl(x):
+#     with open(x,'rb') as f:
+#         return f
 
-        after this, the feaures and labels are put into numpy arrays, which play nice with sklearn functions
-
-        4 objects are returned:
-            -- training/testing features
-            -- training/testing labels
-
-    """
+def preprocess(words_file = r"C:\Users\dell\OneDrive\Documents\VS Codes\Udacity-UD120-Migrated-to-Python-3\tools\word_data.pkl", authors_file = r"C:\Users\dell\OneDrive\Documents\VS Codes\Udacity-UD120-Migrated-to-Python-3\tools\email_authors.pkl"):
 
     ### the words (features) and authors (labels), already largely preprocessed
     ### this preprocessing will be repeated in the text learning mini-project
