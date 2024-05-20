@@ -1,4 +1,7 @@
+t0 = time()
+clf.fit(features_train, labels_train)
+print("Training Time:", round(time()-t0, 3), "s")
 
-
-""" 
-    This is the code to accompany the Lesson 1 (Naive Bayes) mini-project. 
+t0 = time()
+clf.fit(features_test, labels_test)
+print("Predicting Time:", round(time()-t0, 3), "s")
