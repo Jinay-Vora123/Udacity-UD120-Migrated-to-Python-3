@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 import random
 import numpy
 import matplotlib.pyplot as plt
@@ -51,12 +49,6 @@ try:
 except NameError:
     print("Your regression object doesn't exist, or isn't name reg")
     print("Can't make predictions to use in identifying outliers")
-
-
-
-
-
-
 
 ### only run this code if cleaned_data is returning data
 if len(cleaned_data) > 0:

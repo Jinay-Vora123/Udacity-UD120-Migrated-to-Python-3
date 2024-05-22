@@ -1,6 +1,3 @@
-#!/usr/bin/python
-
-
 def outlierCleaner(predictions, ages, net_worths):
     """
         Clean away the 10% of points that have the largest
