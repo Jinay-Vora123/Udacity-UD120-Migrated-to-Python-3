@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 import joblib
 import numpy
 numpy.random.seed(42)
