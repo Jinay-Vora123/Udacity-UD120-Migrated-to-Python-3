@@ -22,9 +22,9 @@ features_train, features_test, labels_train, labels_test = train_test_split(word
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 vectorizer = TfidfVectorizer(sublinear_tf=True, max_df=0.5, stop_words='english')
-features_train = vectorizer.fit_transform(features_train)
+features_train = vectorizer.fit_transform(features_train).toarray()
 features_test  = vectorizer.transform(features_test).toarray()
-
+words = vectorizer.get_feature_names_out()
 
 ### a classic way to overfit is to use a small number
 ### of data points and a large number of features;
@@ -35,8 +35,15 @@ labels_train   = labels_train[:150]
 
 
 ### your code goes here
-from sklearn import tree
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
 
-clf = tree.DecisionTreeClassifier()
+clf = DecisionTreeClassifier()
 clf.fit(features_train,labels_train)
-print("Accuracy Score:",clf.score(features_test,labels_test))
+pred = clf.predict(features_test)
+print ("Accuracy: ",accuracy_score(pred,labels_test))
+
+imp_features = clf.feature_importances_
+for i in imp_features:
+    if i>=0.2:
+        print ("Important feature: ",i," ",numpy.where(imp_features==i))

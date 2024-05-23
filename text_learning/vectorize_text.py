@@ -42,37 +42,39 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
     for path in from_person:
         temp_counter += 1
         
-        if temp_counter < 200:
+        if temp_counter:
             path = os.path.join(r'C:\Users\dell\OneDrive\Documents\VS Codes', path[:-1])
             print(path)
             email = open(path, "r")
+
+            ### use parseOutText to extract the text from the opened email
+            text = parseOutText(email)            
         
-	        ### use parseOutText to extract the text from the opened email
-            text = parseOutText(email)
+            ### use str.replace() to remove any instances of the words
+            stopwords = ["sara", "shackleton", "chris", "germani", "sshacklensf", "cgermannsf"]
+            for word in stopwords:            
+                text = text.replace(word, "")            
+        
+            ### append the text to word_data
+            word_data.append(text)
+            ### append a 0 to from_data if email is from Sara, and 1 if email is from Chris
+            if name=="sara":
+                from_data.append(0)
+            else:
+                from_data.append(1)
+            email.close()
 
-	        ### use str.replace() to remove any instances of the words
-	        ### ["sara", "shackleton", "chris", "germani"]
-            text = text.replace("sara","")
-            text = text.replace("shackleton","")
-            text = text.replace("chris","")
-            text = text.replace("germani","")
-            text = text.replace("sshacklensf","")
-            text = text.replace("cgermannsf","")
-
-	        ### append the text to word_data
-            if text!="":
-                word_data.append(text)
-
-	        ### append a 0 to from_data if email is from Sara, and 1 if email is from Chris
-            from_data.append(0 if name=="sara" else 1)
-
-        email.close()
-
-print("Emails Processed")
+print("emails processed")
 from_sara.close()
 from_chris.close()
 
+
 joblib.dump( word_data, open(r"C:\Users\dell\OneDrive\Documents\VS Codes\Udacity-UD120-Migrated-to-Python-3\text_learning\your_word_data.pkl", "wb") )
-joblib.dump( from_data, open(r"Udacity-UD120-Migrated-to-Python-3\text_learning\your_email_authors.pkl", "wb") )
+joblib.dump( from_data, open(r"C:\Users\dell\OneDrive\Documents\VS Codes\Udacity-UD120-Migrated-to-Python-3\text_learning\your_email_authors.pkl", "wb") )
 
 ### in Part 4, do TfIdf vectorization here
+from sklearn.feature_extraction.text import TfidfVectorizer
+vectorizer = TfidfVectorizer(stop_words = 'english')
+transformed = vectorizer.fit_transform(word_data)
+print (len(vectorizer.get_feature_names_out()))
+print (vectorizer.get_feature_names_out()[34597]) 
