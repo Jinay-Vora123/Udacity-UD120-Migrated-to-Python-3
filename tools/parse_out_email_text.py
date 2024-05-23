@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 from nltk.stem.snowball import SnowballStemmer
 import string
 
@@ -43,7 +41,7 @@ def parseOutText(f):
     
 
 def main():
-    ff = open("../text_learning/test_email.txt", "r")
+    ff = open(r"C:\Users\dell\OneDrive\Documents\VS Codes\Udacity-UD120-Migrated-to-Python-3\text_learning\test_email.txt", "rb")
     text = parseOutText(ff)
     print(text)
 
