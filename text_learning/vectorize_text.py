@@ -72,8 +72,7 @@ print("Emails Processed")
 from_sara.close()
 from_chris.close()
 
-joblib.dump( word_data, open("your_word_data.pkl", "wb") )
-joblib.dump( from_data, open("your_email_authors.pkl", "wb") )
-
+joblib.dump( word_data, open(r"C:\Users\dell\OneDrive\Documents\VS Codes\Udacity-UD120-Migrated-to-Python-3\text_learning\your_word_data.pkl", "wb") )
+joblib.dump( from_data, open(r"Udacity-UD120-Migrated-to-Python-3\text_learning\your_email_authors.pkl", "wb") )
 
 ### in Part 4, do TfIdf vectorization here

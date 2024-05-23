@@ -6,8 +6,8 @@ numpy.random.seed(42)
 ### The words (features) and authors (labels), already largely processed.
 ### These files should have been created from the previous (Lesson 10)
 ### mini-project.
-words_file = r"C:\Users\dell\OneDrive\Documents\VS Codes\Udacity-UD120-Migrated-to-Python-3\feature_selection\email_authors.pkl" 
-authors_file = r"C:\Users\dell\OneDrive\Documents\VS Codes\Udacity-UD120-Migrated-to-Python-3\feature_selection\email_authors.pkl"
+words_file = r"C:\Users\dell\OneDrive\Documents\VS Codes\Udacity-UD120-Migrated-to-Python-3\text_learning\your_word_data.pkl" 
+authors_file = r"C:\Users\dell\OneDrive\Documents\VS Codes\Udacity-UD120-Migrated-to-Python-3\text_learning\your_email_authors.pkl"
 word_data = joblib.load( open(words_file, "rb"))
 authors = joblib.load( open(authors_file, "rb") )
 
