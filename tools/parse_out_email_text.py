@@ -26,8 +26,14 @@ def parseOutText(f):
         text_string = content[1].translate(str.maketrans('','',string.punctuation))
 
         ### project part 2: comment out the line below
-        words = text_string
-
+        # words = text_string
+        stemmer = SnowballStemmer("english")
+        
+        text = ""
+        for i in text_string.split():
+            if i!=" ":
+                text += " "+(stemmer.stem(i).strip())
+        words = text.lstrip()
 
 
         ### split the text string into individual words, stem each word,
@@ -41,7 +47,7 @@ def parseOutText(f):
     
 
 def main():
-    ff = open(r"C:\Users\dell\OneDrive\Documents\VS Codes\Udacity-UD120-Migrated-to-Python-3\text_learning\test_email.txt", "rb")
+    ff = open(r"C:\Users\dell\OneDrive\Documents\VS Codes\Udacity-UD120-Migrated-to-Python-3\text_learning\test_email.txt", "r")
     text = parseOutText(ff)
     print(text)
 
