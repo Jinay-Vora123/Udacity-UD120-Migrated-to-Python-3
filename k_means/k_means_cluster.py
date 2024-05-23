@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 """ 
     Skeleton code for k-means clustering mini-project.
 """
