@@ -1,6 +1,3 @@
-#!/usr/bin/python
-
-
 """
     Starter code for the validation mini-project.
     The first step toward building your POI identifier!
