@@ -1,8 +1,6 @@
-#!/usr/bin/python
-
 import sys
 import pickle
-sys.path.append("../tools/")
+sys.path.append(r"C:\Users\dell\OneDrive\Documents\VS Codes\Udacity-UD120-Migrated-to-Python-3\tools")
 
 from feature_format import featureFormat, targetFeatureSplit
 from tester import dump_classifier_and_data
